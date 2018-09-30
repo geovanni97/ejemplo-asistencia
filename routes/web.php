@@ -11,7 +11,7 @@
 |
 */
 
-
+Auth::routes();
 
 Route::get('/', function () {
     return view('welcome');
@@ -21,6 +21,8 @@ Route::get('/inicio',function(){
   return view('inicio');
  
 });
+Route::resource('materia', 'MateriaController');
+
 /* 
 Route::get('/materia/create',function(){
   return view('materias.formMateria');
@@ -40,11 +42,11 @@ Route::get('/materia/show/{id}',function($id){
   return view('materias.showMateria',compact('id'));//compact pasa la variable a la vista
   
 });
-Auth::routes();
+
 */
 
 //Route::get('/home', 'HomeController@index')->name('home');
-  
+  /*
 Route::get('/materias/listado', 'MateriaController@listado');
 Route::get('/materias/create', 'MateriaController@create');
 Route::post('/materias/store', 'MateriaController@store');
@@ -52,8 +54,7 @@ Route::get('/materias/show/{materia}', 'MateriaController@show');
 Route::get('/materias/edit/{id}', 'MateriaController@edit');
 Route::get('/materias/update/{id}', 'MateriaController@update');
 Route::post('/materias/reportePDF', 'MateriaController@reportePDF');
-
-
+*/
 
         /*
 

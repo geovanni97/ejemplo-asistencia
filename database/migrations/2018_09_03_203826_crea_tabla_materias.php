@@ -15,12 +15,10 @@ class CreaTablaMaterias extends Migration
     {
         Schema::create('materias', function (Blueprint $table) {
             $table->increments('id');
-            $table->integer('user_id')->unsigned();
             $table->string('materia');
             $table->string('crn',20);
-            $table->string('calendario',6);
-            $table->time('hora_inicio');
             $table->string('salon');
+            $table->string('seccion');
             $table->timestamps();
         });
     }

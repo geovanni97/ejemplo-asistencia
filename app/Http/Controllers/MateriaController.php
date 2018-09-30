@@ -17,9 +17,10 @@ class MateriaController extends Controller
     //use pdf lib
     //return pdf_file
   }
-    public function listado()
+    public function index()
     {
-        return view('materias.indexMateria');
+      $materias = Materia::all();
+        return view('materias.indexMateria', compact('materias'));
     }
 
     /**
@@ -41,7 +42,18 @@ class MateriaController extends Controller
      */
     public function store(Request $request)
     {
-      $materia = $request->materia;
+      $materia = new Materia();
+     $materia->materia = $request->input('materia');
+     $materia->seccion = $request->input('seccion');
+     $materia->crn = $request->crn; //Es otra opcion dinamicamente poniendole el nombre de nuestro campo
+     $materia->salon = $request->salon;
+     $materia->save();
+     return redirect()->route('materia.index');
+
+      dd($materia);
+            //dd($request->all); Ver qie esta recibiendo los datos
+
+      //$materia = $request->materia;
   //validacion
   //$materia=$_POST['materia'];
   //inserta a base de datos
